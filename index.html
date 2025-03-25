@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DimsPrinting | Solusi Cetak Professional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #2563eb;
+            --accent-color: #10b981;
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .floating-whatsapp {
+            animation: float 2s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Improved Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .hero-section {
+                padding-top: 6rem;
+                padding-bottom: 4rem;
+            }
+
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-section p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero-buttons a {
+                width: 100%;
+                text-align: center;
+            }
+
+            .services-grid, .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .location-section {
+                grid-template-columns: 1fr;
+            }
+
+            .location-map iframe {
+                width: 100%;
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600">
+                    <path d="M4 7V4a2 2 0 0 1 2-2h8.5L20 7.5V20a2 2 0 0 1-2 2H4"/>
+                    <polyline points="14 2 14 8 20 8"/>
+                    <path d="M10 9 8 7 6 9 4 7"/>
+                    <path d="M10 12h4m-4 3h4"/>
+                </svg>
+                <h1 class="text-2xl font-bold text-blue-600">DimsPrinting</h1>
+            </div>
+            <div class="md:flex hidden space-x-6 items-center">
+                <a href="#layanan" class="hover:text-blue-600 transition-colors">Layanan</a>
+                <a href="#produk" class="hover:text-blue-600 transition-colors">Produk</a>
+                <a href="#lokasi" class="hover:text-blue-600 transition-colors">Lokasi</a>
+                <a href="#kontak" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition-colors">Hubungi Kami</a>
+            </div>
+            <button class="md:hidden" id="mobile-menu-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden fixed top-16 left-0 w-full bg-white shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out">
+            <div class="flex flex-col items-center space-y-4 py-6">
+                <a href="#layanan" class="mobile-menu-link">Layanan</a>
+                <a href="#produk" class="mobile-menu-link">Produk</a>
+                <a href="#lokasi" class="mobile-menu-link">Lokasi</a>
+                <a href="#lokasi" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700">Hubungi Kami</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-section hero-gradient text-white pt-24 pb-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 reveal">Solusi Cetak Professional Terpercaya</h1>
+            <p class="text-lg md:text-xl mb-8 opacity-90 reveal">Percayakan kebutuhan desain dan pencetakan Anda kepada kami</p>
+            <div class="hero-buttons flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#lokasi" class="w-full sm:w-auto max-w-xs bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors reveal text-center">
+                    Hubungi Kami
+                </a>
+                <a href="#layanan" class="w-full sm:w-auto max-w-xs border border-white text-white px-6 py-3 rounded-full hover:bg-white hover:text-blue-600 transition-colors reveal text-center">
+                    Lihat Layanan
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="layanan" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-600">Layanan Kami</h2>
+            <div class="services-grid grid md:grid-cols-3 gap-8">
+                <div class="service-card bg-gray-100 p-6 rounded-xl text-center hover:shadow-lg">
+                    <div class="flex justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600">
+                            <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2z"/>
+                            <path d="M9 22v-4h2v4"/>
+                            <path d="M12 13V7"/>
+                            <path d="M16 13v-3"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Jasa Desain</h3>
+                    <p class="text-gray-600">Desain kreatif profesional untuk segala kebutuhan</p>
+                </div>
+                <div class="service-card bg-gray-100 p-6 rounded-xl text-center hover:shadow-lg">
+                    <div class="flex justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-600">
+                            <path d="M4 7V4a2 2 0 0 1 2-2h8.5L20 7.5V20a2 2 0 0 1-2 2H4"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <path d="M9 13h4"/>
+                            <path d="M9 17h4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Jasa Cetak</h3>
+                    <p class="text-gray-600">Pencetakan berkualitas tinggi dengan detail presisi</p>
+                </div>
+                <div class="service-card bg-gray-100 p-6 rounded-xl text-center hover:shadow-lg">
+                    <div class="flex justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-600">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="9" y1="15" x2="15" y2="15"/>
+                            <line x1="9" y1="12" x2="15" y2="12"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Jasa Pengetikan</h3>
+                    <p class="text-gray-600">Layanan pengetikan dokumen cepat dan akurat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="produk" class="bg-gray-50 py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-600">Produk Kami</h2>
+            <div class="products-grid grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all">
+                    <div class="flex justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <circle cx="8.5" cy="8.5" r="1.5"/>
+                            <path d="M11 12 L13 14 L16 11"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-2">Cetak Warna / Hitam Putih</h3>
+                    <p class="text-gray-600 text-center">Pilihan cetak berkualitas dengan warna cerah dan tajam</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all">
+                    <div class="flex justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-600">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="3" y1="9" x2="21" y2="9"/>
+                            <line x1="9" y1="21" x2="9" y2="9"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-2">Cetak Kertas Berbagai Ukuran</h3>
+                    <p class="text-gray-600 text-center">Tersedia pencetakan pada berbagai ukuran kertas</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all">
+                    <div class="flex justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-purple-600">
+                            <path d="M12 3c-1.578 0-3 1.5-3 3v6c0 1.5 1.422 3 3 3s3-1.5 3-3V6c0-1.5-1.422-3-3-3z"/>
+                            <path d="M12 3v18c-2 0-4-2-4-4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-center mb-2">Cetak Foto</h3>
+                    <p class="text-gray-600 text-center">Cetak foto berkualitas untuk kenangan istimewa</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="lokasi" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-600">Lokasi Kami</h2>
+            <div class="location-section grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">DimsPrinting</h3>
+                    <p class="text-gray-600 mb-4">Jl. Voli No.140, Pasirkareumbi, Kec. Subang, Kabupaten Subang, Jawa Barat 41211</p>
+                    <div class="flex space-x-4 flex-wrap gap-4">
+                        <a href="https://wa.me/6283140762170" target="_blank" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition-colors">
+                            WhatsApp
+                        </a>
+                        <a href="https://maps.google.com/maps?q=Jl.+Voli+No.140+Pasirkareumbi+Subang" target="_blank" class="border border-blue-600 text-blue-600 px-6 py-3 rounded-full hover:bg-blue-600 hover:text-white transition-colors">
+                            Lihat Peta
+                        </a>
+                    </div>
+                </div>
+                <div class="location-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d294.5927836342766!2d107.7779316034918!3d-6.578049755831511!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e693b437d42f43d%3A0x99747ee8f314335c!2sJl.%20Voli%20No.140%2C%20Pasirkareumbi%2C%20Kec.%20Subang%2C%20Kabupaten%20Subang%2C%20Jawa%20Barat%2041211!5e0!3m2!1sid!2sid!4v1742874700989!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/6283140762170" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-xl floating-whatsapp hover:bg-green-600 transition-colors z-50">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22a9 9 0 1 0-7.8-4.3L3 21l4.9-1.3a9 9 0 0 0 4.1 1.3"/>
+            <path d="M7.1 12.7 8.5 11a1.4 1.4 0 0 1 1.9.2l2.7 3a1.4 1.4 0 0 0 1.9.2L17 12"/>
+        </svg>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-blue-600 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2025 DimsPrinting. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('-translate-x-full');
+        });
+
+        // Close mobile menu when a link is clicked
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('-translate-x-full');
+            });
+        });
+
+        // Reveal on scroll animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                } else {
+                    reveals[i].classList.remove("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+    </script>
+</body>
+</html>
